@@ -1,10 +1,10 @@
 
-# moa-plugin-hubspot
+# @promactinfo/moa-plugin-hubspot
 
 HubSpot integration plugin for the specialized MOA CLI.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/moa-plugin-hubspot.svg)](https://npmjs.org/package/moa-plugin-hubspot)
+[![Version](https://img.shields.io/npm/v/@promactinfo/moa-plugin-hubspot.svg)](https://npmjs.org/package/@promactinfo/moa-plugin-hubspot)
 
 ## Usage
 
@@ -14,7 +14,7 @@ This plugin is designed to be used with the `moa` CLI core.
 
 ```bash
 # In your main moa-cli-core project (or user installation)
-moa plugins install moa-plugin-hubspot
+moa plugins install @promactinfo/moa-plugin-hubspot
 
 # OR link locally for development
 moa plugins link /path/to/moa-plugin-hubspot
@@ -79,4 +79,4 @@ To publish this plugin to npm so others can install it:
    npm publish --access public
    ```
 
-Once published, users can install it via `moa plugins install moa-plugin-hubspot`.
+Once published, users can install it via `moa plugins install @promactinfo/moa-plugin-hubspot`.

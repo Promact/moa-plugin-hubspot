@@ -1,7 +1,7 @@
 {
-  "name": "moa-plugin-hubspot",
+  "name": "@promactinfo/moa-plugin-hubspot",
   "description": "Hubspot provider for moa cli",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Chintan Shah",
   "bin": {
     "hubspot": "./bin/run.js"
