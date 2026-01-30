@@ -1,7 +1,7 @@
 {
   "name": "@promactinfo/moa-plugin-hubspot",
   "description": "Hubspot provider for moa cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Chintan Shah",
   "bin": {
     "hubspot": "./bin/run.js"
@@ -14,7 +14,7 @@
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
     "cli-table3": "^0.6.5",
-    "moa-cli-core": "file:../moa-cli-core"
+    "@promactinfo/moa-cli": "file:../moa-cli-core"
   },
   "devDependencies": {
     "@eslint/compat": "^1",

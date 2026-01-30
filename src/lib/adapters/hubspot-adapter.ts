@@ -1,6 +1,6 @@
 
 import { Client } from '@hubspot/api-client';
-import { SaasProvider, AuthManager, ConfigManager } from 'moa-cli-core';
+import { SaasProvider, AuthManager, ConfigManager } from '@promactinfo/moa-cli';
 import * as inquirer from '@inquirer/prompts';
 
 export class HubSpotAdapter implements SaasProvider {
