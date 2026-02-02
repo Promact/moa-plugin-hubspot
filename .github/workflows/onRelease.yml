@@ -17,6 +17,10 @@ jobs:
           node-version: 18
           cache: "pnpm"
       - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          cache: true
       - run: pnpm install
       - run: pnpm run build
       - run: pnpm run prepack
