@@ -3,14 +3,27 @@ name: version, tag and github release
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          cache: true
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: "pnpm"
       - name: Check if version already exists
         id: version-check
         run: |
