@@ -1,23 +1,25 @@
 import {Client} from '@hubspot/api-client'
 import {SimplePublicObjectWithAssociations} from '@hubspot/api-client/lib/codegen/crm/companies/index.js'
-import * as inquirer from '@inquirer/prompts'
 import {AuthManager, SaasProvider} from '@promactinfo/moa-cli'
+import {InquirerPrompter, IPrompter} from '../prompter.js'
 
 export class HubSpotAdapter implements SaasProvider {
     name = 'hubspot'
     private client: Client | null = null
     private authManager: AuthManager
+    private prompter: IPrompter
 
-    constructor() {
+    constructor(prompter?: IPrompter) {
         // We get the singleton instance from the core library
         // Note: In a real plugin scenario, you might depend on dependency injection
         // or access these via a shared runtime if exported correctly.
         // For now, assuming direct import works (with local linking or correct package structure).
         this.authManager = new AuthManager()
+        this.prompter = prompter || new InquirerPrompter()
     }
 
     async authenticate(): Promise<void> {
-        const authMethod = await inquirer.select({
+        const authMethod = await this.prompter.select({
             message: 'Select authentication method for HubSpot:',
             choices: [
                 {name: 'Private App Token (Recommended)', value: 'token'},
@@ -26,13 +28,13 @@ export class HubSpotAdapter implements SaasProvider {
         })
 
         if (authMethod === 'token') {
-            const token = await inquirer.password({
+            const token = await this.prompter.password({
                 message: 'Enter your HubSpot Private App Access Token:',
             })
 
             // Verify token by making a lightweight call
             try {
-                const testClient = new Client({accessToken: token})
+                const testClient = this.createClientInstance(token)
                 await testClient.crm.contacts.basicApi.getPage(1) // Standard test connection
 
                 await this.authManager.setCredentials(this.name, {
@@ -57,8 +59,12 @@ export class HubSpotAdapter implements SaasProvider {
             throw new Error('Not authenticated. Please run "moa hubspot:auth" first.')
         }
 
-        this.client = new Client({accessToken: token})
+        this.client = this.createClientInstance(token)
         return this.client
+    }
+
+    protected createClientInstance(token: string): Client {
+        return new Client({accessToken: token})
     }
 
     async getEntity(entityType: string, id: string): Promise<SimplePublicObjectWithAssociations> {

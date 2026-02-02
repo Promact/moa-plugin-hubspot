@@ -1,7 +1,13 @@
 {
     "$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
-    "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
-    "files": { "includes": ["**", "!!**/dist"] },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "includes": ["**", "!!**/dist"]
+    },
     "formatter": {
         "enabled": true,
         "formatWithErrors": false,
@@ -145,8 +151,10 @@
             "attributePosition": "auto",
             "bracketSpacing": false
         },
-        "assist": { "enabled": true },
-        "globals": ["describe", "NodeJS", "it"]
+        "assist": {
+            "enabled": true
+        },
+        "globals": ["describe", "NodeJS", "it", "beforeEach", "afterEach"]
     },
     "html": {
         "formatter": {
@@ -159,7 +167,9 @@
             "includes": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
             "linter": {
                 "rules": {
-                    "complexity": { "noArguments": "error" },
+                    "complexity": {
+                        "noArguments": "error"
+                    },
                     "correctness": {
                         "noConstAssign": "off",
                         "noGlobalObjectCalls": "off",
@@ -170,7 +180,9 @@
                         "noUnreachable": "off",
                         "noUnreachableSuper": "off"
                     },
-                    "style": { "useConst": "error" },
+                    "style": {
+                        "useConst": "error"
+                    },
                     "suspicious": {
                         "noClassAssign": "off",
                         "noDuplicateClassMembers": "off",
@@ -189,7 +201,6 @@
         },
         {
             "includes": ["**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}"],
-            "javascript": { "globals": [] },
             "linter": {
                 "rules": {
                     "complexity": {
@@ -241,13 +252,21 @@
                         "useValidTypeof": "error",
                         "useYield": "error"
                     },
-                    "performance": { "noAwaitInLoops": "error" },
-                    "security": { "noGlobalEval": "error" },
+                    "performance": {
+                        "noAwaitInLoops": "error"
+                    },
+                    "security": {
+                        "noGlobalEval": "error"
+                    },
                     "style": {
                         "noNegationElse": "error",
                         "noRestrictedGlobals": {
                             "level": "error",
-                            "options": { "deniedGlobals": { "": "" } }
+                            "options": {
+                                "deniedGlobals": {
+                                    "": ""
+                                }
+                            }
                         },
                         "noRestrictedImports": "error",
                         "noYodaExpression": "error",
@@ -308,10 +327,19 @@
                 }
             }
         },
-        { "includes": ["test/**/*.test.ts"], "linter": { "rules": {} } }
+        {
+            "includes": ["test/**/*.test.ts"],
+            "linter": {
+                "rules": {}
+            }
+        }
     ],
     "assist": {
         "enabled": true,
-        "actions": { "source": { "organizeImports": "on" } }
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
     }
 }
