@@ -13,7 +13,9 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
@@ -23,6 +25,12 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
       - run: pnpm install
+      - name: Run Biome
+        run: biome ci .
       - run: pnpm run build
       - run: pnpm run test
