@@ -24,8 +24,8 @@ importers:
         specifier: ^5
         version: 5.4.55
       '@promactinfo/moa-cli':
-        specifier: file:../moa-cli-core
-        version: file:../moa-cli-core(@types/node@18.19.130)
+        specifier: ^0.1.0
+        version: 0.1.0(@types/node@18.19.130)
       cli-table3:
         specifier: ^0.6.5
         version: 0.6.5
@@ -738,8 +738,8 @@ packages:
     resolution: {integrity: sha512-h104Kh26rR8tm+a3Qkc5S4VLYint3FE48as7+/5oCEcKR2idC/pF1G6AhIXKI+eHPJa/3J9i5z0Al47IeGHPkA==}
     engines: {node: '>=12'}
 
-  '@promactinfo/moa-cli@file:../moa-cli-core':
-    resolution: {directory: ../moa-cli-core, type: directory}
+  '@promactinfo/moa-cli@0.1.0':
+    resolution: {integrity: sha512-jxSKoPTsu2+j77kEc3B1+irKU1HMRrhWdU8A+rvUnQ7R1P9wfk9blZIthljcTT9eFYsN8CTeOMcycXUm1s01sw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4437,7 +4437,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@promactinfo/moa-cli@file:../moa-cli-core(@types/node@18.19.130)':
+  '@promactinfo/moa-cli@0.1.0(@types/node@18.19.130)':
     dependencies:
       '@inquirer/prompts': 8.2.0(@types/node@18.19.130)
       '@oclif/core': 4.8.0

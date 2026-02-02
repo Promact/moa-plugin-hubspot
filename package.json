@@ -14,7 +14,7 @@
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
     "cli-table3": "^0.6.5",
-    "@promactinfo/moa-cli": "file:../moa-cli-core"
+    "@promactinfo/moa-cli": "^0.1.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1",
