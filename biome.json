@@ -136,7 +136,10 @@
             "!node_modules",
             "!**/oclif.manifest.json",
             "!**/yarn.lock",
-            "!**/package-lock.json"
+            "!**/package-lock.json",
+            "!**/biome.json",
+            "!**/biome.lock",
+            "!**/*.json"
         ]
     },
     "javascript": {
